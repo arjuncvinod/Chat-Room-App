@@ -1,23 +1,36 @@
-import {  useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Auth from "./components/Auth";
 import Cookies from "universal-cookie";
 import CreateRoom from "./components/CreateRoom";
 import Chat from "./components/Chat";
+import { signOut } from "firebase/auth";
+import { auth } from "./firebase-config";
 
 function App() {
   const cookies = new Cookies();
   const [isAuth, setIsAuth] = useState(cookies.get("authtoken"));
   const [room, setRoom] = useState("");
 
-if (!isAuth)
+  const handleSignOut = async () => {
+    signOut(auth);
+    cookies.remove("authtoken");
+    setIsAuth(false);
+    setRoom(null);
+  };
+  if (!isAuth)
     return (
       <div>
-        <Auth setIsAuth={setIsAuth}/>
+        <Auth setIsAuth={setIsAuth} />
       </div>
     );
   else {
-    return room ? <Chat room={room}/> : <CreateRoom setRoom={setRoom} />;
+    return (
+      <>
+        <button onClick={handleSignOut}>SignOut</button>
+        {room ? <Chat room={room} /> : <CreateRoom setRoom={setRoom} />}
+      </>
+    );
   }
 }
 export default App;
