@@ -3,6 +3,7 @@ import {
   addDoc,
   collection,
   onSnapshot,
+  orderBy,
   query,
   serverTimestamp,
   where,
@@ -13,7 +14,11 @@ function Chat(props) {
   const [msgs, setMgs] = useState([]);
 
   useEffect(() => {
-    const queryMessage = query(messageRef, where("room", "==", props.room));
+    const queryMessage = query(
+      messageRef,
+      where("room", "==", props.room),
+      orderBy("createdAt")
+    );
     const unsubscribe = onSnapshot(queryMessage, (snapshot) => {
       let messages = [];
       snapshot.forEach((doc) => {
@@ -40,8 +45,12 @@ function Chat(props) {
   };
   return (
     <div>
+      <h1>Welcome to {props.room}</h1>
       {msgs.map((message) => (
-        <h1 key={message.id}>{message.text}</h1>
+        <div key={message.id}>
+          <span>{message.user} : </span>
+          <span>{message.text}</span>
+        </div>
       ))}
       <form onSubmit={handleSubmit}>
         <input
