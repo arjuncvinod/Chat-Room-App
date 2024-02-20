@@ -3,6 +3,7 @@ import "./App.css";
 import Auth from "./components/Auth";
 import Cookies from "universal-cookie";
 import CreateRoom from "./components/CreateRoom";
+import Chat from "./components/Chat";
 
 function App() {
   const cookies = new Cookies();
@@ -16,7 +17,7 @@ if (!isAuth)
       </div>
     );
   else {
-    return room ? <div>Chat</div> : <CreateRoom setRoom={setRoom} />;
+    return room ? <Chat room={room}/> : <CreateRoom setRoom={setRoom} />;
   }
 }
 export default App;
