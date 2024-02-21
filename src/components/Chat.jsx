@@ -9,9 +9,22 @@ import {
   where,
 } from "firebase/firestore";
 import { auth, db } from "../firebase-config";
+import SendIcon from "@mui/icons-material/Send";
+import SingleChat from "./SingleChat";
+
 function Chat(props) {
   const messageRef = collection(db, "messages");
   const [msgs, setMgs] = useState([]);
+
+  function updateScroll() {
+    var element = document.getElementById("chat-window");
+    if (element) {
+      element.scrollTop = element.scrollHeight;
+    }
+  }
+  useEffect(() => {
+    updateScroll();
+  }, [msgs]);
 
   useEffect(() => {
     const queryMessage = query(
@@ -44,14 +57,15 @@ function Chat(props) {
     setNewMsg("");
   };
   return (
-    <div>
-      <h1>Welcome to {props.room}</h1>
-      {msgs.map((message) => (
-        <div key={message.id}>
-          <span>{message.user} : </span>
-          <span>{message.text}</span>
-        </div>
-      ))}
+    <div className="chat">
+      <h1>{props.room} Chatroom</h1>
+      <div id="chat-window">
+        {msgs.map((message) => (
+          <div>
+         <SingleChat message={message} />
+         </div>
+        ))}
+      </div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -59,7 +73,9 @@ function Chat(props) {
           onChange={(e) => setNewMsg(e.target.value)}
           value={newMsg}
         />
-        <button>send</button>
+        <button type="submit">
+          <SendIcon />
+        </button>
       </form>
     </div>
   );
