@@ -5,7 +5,6 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 function Auth(props) {
-  
   const handleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
@@ -17,10 +16,14 @@ function Auth(props) {
   };
 
   return (
-    <>
-      <p>sign in with google</p>
-      <button onClick={handleSignIn}>Sign in</button>
-    </>
+    <div className="login">
+      <button onClick={handleSignIn}>
+        <img
+          src="g-logo.png" alt=""
+        />
+        Sign in with google
+      </button>
+    </div>
   );
 }
 
