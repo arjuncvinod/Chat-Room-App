@@ -57,3 +57,47 @@ body {
   cursor: pointer;
 }
 
+.container {
+  display: flex;
+  height: 90vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #3924a3;
+}
+.create-room {
+  background-color: #eee5ff;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 20px;
+  border-radius: 8px;
+}
+.create-room input {
+  height: 35px;
+  border: none;
+  border: 3px solid #3924a3;
+  border-radius: 5px;
+  outline: none;
+  padding: 3px;
+  text-align: center;
+  font-size: 1rem;
+  color: #3924a3;
+  font-weight: bold;
+  background-color: #eee5ff;
+}
+.create-room input::placeholder {
+  color: #3924a3;
+  font-size: 1rem;
+  text-align: center;
+}
+.create-room button {
+  height: 35px;
+  background-color: #3924a3;
+  color: #e1d6fe;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
