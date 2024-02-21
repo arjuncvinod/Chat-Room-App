@@ -32,6 +32,13 @@ function App() {
           SignOut
         </button>
         {room ? <Chat room={room} /> : <CreateRoom setRoom={setRoom} />}
+
+        <div class="copyright">
+        <p class="made">Designed & Built by <a href='https://arjuncvinod.me'>Arjun</a></p>
+        <p>
+          Copyright &copy; 2024
+        </p>
+      </div>
       </div>
     );
   }
