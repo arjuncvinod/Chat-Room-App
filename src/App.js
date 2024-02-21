@@ -20,16 +20,19 @@ function App() {
   };
   if (!isAuth)
     return (
-      <div>
+      <div className="login-container">
+        <h1>Welcome to Chatroom</h1>
         <Auth setIsAuth={setIsAuth} />
       </div>
     );
   else {
     return (
-      <>
-        <button onClick={handleSignOut}>SignOut</button>
+      <div className="container">
+        <button onClick={handleSignOut} className="signout">
+          SignOut
+        </button>
         {room ? <Chat room={room} /> : <CreateRoom setRoom={setRoom} />}
-      </>
+      </div>
     );
   }
 }
