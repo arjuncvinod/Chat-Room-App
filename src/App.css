@@ -101,3 +101,72 @@ body {
   border: none;
   border-radius: 5px;
 }
+.chat {
+  background-color: #eee5ff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 8px;
+}
+.chat h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+#chat-window {
+  /* background-color: red; */
+  height: 50vh;
+  overflow: scroll;
+  width: 250px;
+  border-radius: 8px;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#chat-window::-webkit-scrollbar {
+  display: none;
+}
+form {
+  display: flex;
+  align-items: center;
+  border: 2px solid #3924a3;
+  border-radius: 8px;
+}
+form input {
+  width: 85%;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  padding: 2px;
+  outline: none;
+}
+form button {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  border: none;
+  background-color: transparent;
+  color: #3924a3;
+}
+
+.singlemsg {
+  display: inline-block;
+  min-width: 100px;
+}
+.singlemsg .username {
+  font-size: 0.7rem;
+  display: inline-block;
+  color: gray;
+}
+.singlemsg .content {
+  background-color: rgb(51, 131, 51);
+  min-width: 50px;
+  min-height: 20px;
+  color: white;
+  font-size: 1rem;
+  padding: 4px;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+}
