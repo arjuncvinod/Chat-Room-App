@@ -3,11 +3,11 @@ import React, { useRef } from "react";
 function CreateRoom(props) {
   const inputValue = useRef(null);
   return (
-    <div>
-      <h1>Enter the Room Name</h1>
-      <input type="text" ref={inputValue} />
-      <button onClick={()=>props.setRoom(inputValue.current.value)}>
-        create
+    <div className="create-room">
+      {/* <h1>Enter the Room Name</h1> */}
+      <input type="text" ref={inputValue} placeholder="Enter the room name" />
+      <button onClick={() => props.setRoom(inputValue.current.value)}>
+        Join
       </button>
     </div>
   );
