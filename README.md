@@ -1,6 +1,7 @@
 # Chat Room
 
 A simple chat room application built using React and Firebase.
+[Live Preview](https://chatroom-acv.vercel.app/)
 
 ![image](https://github.com/arjuncvinod/Chat-Room-App/assets/68469520/b5e1200d-7ecf-4044-9d71-246418e64a34)
 
